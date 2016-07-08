@@ -1,8 +1,9 @@
 var User = require('./userModel');
 var signToken = require('../../auth/auth').signToken;
 
+// Register new user
 exports.saveUser = function(req, res, next) {
-  console.log('Coming!');
+  console.log('Coming!', req.body);
 
   var username = req.body.username;
   var email = req.body.email;
@@ -20,6 +21,7 @@ exports.saveUser = function(req, res, next) {
     if (err) return next(err);
 
     // if the email exists return error
+    console.log('exist?', existingUser);
     if (existingUser) {
       return res
               .status(422)
@@ -44,6 +46,7 @@ exports.saveUser = function(req, res, next) {
   });
 };
 
+// Get one user
 exports.getUser = function(req, res, next) {
   User.findById(req.params.id)
     .select('-password')
