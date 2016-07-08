@@ -40,7 +40,13 @@ exports.saveUser = function(req, res, next) {
       if (err) return next(err);
 
       // Respond to request indicating that the user was created
-      res.json({ token: signToken(userData._id) });
+      res.json({
+        token: signToken(userData._id),
+        user: {
+          username: userData.username,
+          email: userData.email
+        }
+      });
     });
 
   });

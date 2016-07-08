@@ -7,19 +7,45 @@ var User = require('../api/user/userModel');
 
 // Decode user's token
 exports.decodeToken = function() {
-  // [OPTIONAL]
-  // make it optional to place token on query string
-  // if it is, place it on the headers where it should be
-  // so checkToken can see it. See follow the 'Bearer 034930493' format
-  // so checkToken can see it and decode it
-  if (req.query && req.query.hasOwnProperty('access_token')) {
-    req.headers.authorization = 'Bearer ' + req.query.access_token;
+  return function(req, res, next) {
+    // [OPTIONAL]
+    // make it optional to place token on query string
+    // if it is, place it on the headers where it should be
+    // so checkToken can see it. See follow the 'Bearer 034930493' format
+    // so checkToken can see it and decode it
+    if (req.query && req.query.hasOwnProperty('access_token')) {
+      req.headers.authorization = 'Bearer ' + req.query.access_token;
+    }
+    // this will call next if token is valid
+    // and send error if it is not. It will attached
+    // the decoded token to req.user
+    checkToken(req, res, next);
   }
+};
 
-  // this will call next if token is valid
-  // and send error if it is not. It will attached
-  // the decoded token to req.user
-  checkToken(req, res, next);
+exports.getSignedInUserData = function() {
+  return function(req, res, next) {
+    User.findById(req.user._id)
+      .then(function(user) {
+        if (!user) {
+          // if no user is found it was not
+          // it was a valid JWT but didn't decode
+          // to a real user in our DB. Either the user was deleted
+          // since the client got the JWT, or
+          // it was a JWT from some other source
+          res.status(401).send('Unauthorized');
+        } else {
+          // update req.user with fresh user from
+          // stale token data
+          res.json({
+            username: user.username,
+            email: user.email
+          });
+        }
+      }, function(err) {
+        next(err);
+      });
+  };
 };
 
 exports.getFreshUser = function() {
@@ -37,6 +63,7 @@ exports.getFreshUser = function() {
           // update req.user with fresh user from
           // stale token data
           req.user = user;
+          console.log('FOUND IT!', user);
           next();
         }
       }, function(err) {
