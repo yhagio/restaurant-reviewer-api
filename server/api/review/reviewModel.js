@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var UserSchema = new Schema({
+var ReviewSchema = new Schema({
   comment: {
     type: String,
     required: true
@@ -17,13 +17,15 @@ var UserSchema = new Schema({
     ref: 'user'
   },
 
-  restaurant: {
-    type: Schema.Types.ObjectId,
-    ref: 'restaurant'
-  },
+  // restaurant: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'restaurant'
+  // },
 
   rating: {
     type: Number,
     required: true
   }
 });
+
+module.exports = mongoose.model('review', ReviewSchema);

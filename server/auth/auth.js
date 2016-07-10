@@ -63,7 +63,7 @@ exports.getFreshUser = function() {
           // update req.user with fresh user from
           // stale token data
           req.user = user;
-          console.log('FOUND IT!', user);
+          // console.log('FOUND IT!', user);
           next();
         }
       }, function(err) {
