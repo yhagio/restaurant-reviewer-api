@@ -1,4 +1,5 @@
 var Review = require('./reviewModel');
+var Restaurant = require('../restaurant/restaurantModel');
 
 exports.createReview = function(req, res, next) {
   console.log('[createReview user]', req.user);
@@ -14,12 +15,20 @@ exports.createReview = function(req, res, next) {
   var newReview = new Review({
     comment: comment,
     author: author,
-    // restaurant: restaurant,
+    restaurant: restaurant,
     rating: rating
   });
 
   newReview.save(function(err, review) {
     if (err) return next(err);
-    return res.json(review);
+    
+    // Update the restaurant's total rating
+    var query = {_id: restaurant};
+    var update = {$inc: { total_ratings: rating}};
+    Restaurant.findOneAndUpdate(query, update, function(error, result) {
+      if (error) return next(error);
+      return res.json(review);
+    });
+
   });
 }

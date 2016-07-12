@@ -1,8 +1,10 @@
-var restaurnats = [
-  {
-    name: 'ABC Sushi Shop',
-    address: '123 ABC Street Montreal, QC A1B 2C3',
-    reviews: {},
+var Restaurant = require('../api/restaurant/restaurantModel');
+
+for (var i = 0; 10 > i; i++) {
+  Restaurant.create({
+    name: 'ABC Sushi '+i+' Shop',
+    address: 'A '+i+' BC Street Montreal, QC A1B 2C3',
+    reviews: [],
     photo: 'http://loremflickr.com/320/240/montreal',
     hours: {
       mon_start: 11,
@@ -20,5 +22,5 @@ var restaurnats = [
       sun_start: 11,
       sun_end: 22
     },
-  },
-];
+  });
+}

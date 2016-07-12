@@ -18,3 +18,6 @@ npm install && npm run sat_start
 - [JSON Web Token Introduction](https://jwt.io/introduction/)
 - [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
 - [express-jwt](https://github.com/auth0/express-jwt)
+
+Calculate Average
+- http://stackoverflow.com/questions/26810599/calculating-average-in-mongoose

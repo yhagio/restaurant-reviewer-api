@@ -36,7 +36,12 @@ var RestaurantSchema = new Schema({
   reviews: [{
     type: Schema.Types.ObjectId,
     ref: 'review'
-  }]
+  }],
+
+  total_ratings: {
+    type: Number,
+    default: 0
+  }
 
 });
 

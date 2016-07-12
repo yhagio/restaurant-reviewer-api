@@ -17,10 +17,10 @@ var ReviewSchema = new Schema({
     ref: 'user'
   },
 
-  // restaurant: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: 'restaurant'
-  // },
+  restaurant: {
+    type: Schema.Types.ObjectId,
+    ref: 'restaurant'
+  },
 
   rating: {
     type: Number,

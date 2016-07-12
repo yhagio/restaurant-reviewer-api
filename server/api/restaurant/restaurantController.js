@@ -1,4 +1,5 @@
 var Restaurant = require('./restaurantModel');
+var Review = require('../review/reviewModel');
 
 exports.getOne = function(req, res, next) {
   Restaurant.findOne({_id: req.params.id})
@@ -15,6 +16,7 @@ exports.getList = function(req, res, next) {
     .limit(0)
     .exec(function(err, restaurants) {
       if (err) return next(err);
-      console.log('restaurants: ', restaurants);
+
+      return res.json(restaurants);
     });
 };
