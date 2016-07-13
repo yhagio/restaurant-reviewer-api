@@ -6,7 +6,15 @@ exports.getOne = function(req, res, next) {
     .populate('reviews')
     .exec(function(err, restaurant) {
       if (err) return next(err);
-      console.log('restaurant: ', restaurant);
+      // console.log('restaurant one: ', restaurant);
+      Restaurant.populate(restaurant, {
+        path: 'reviews.author',
+        select: 'username email',
+        model: 'user'
+      }, function(err2, rest) {
+        return res.json(rest);
+      });
+      
     });
 };
 
