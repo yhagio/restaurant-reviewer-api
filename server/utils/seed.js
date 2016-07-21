@@ -1,32 +1,31 @@
 var Restaurant = require('../api/restaurant/restaurantModel');
+var User = require('../api/user/userModel');
 
 Restaurant.count({}, function(err, count) {
   if (count < 1) {
-    for (var i = 0; 10 > i; i++) {
+    restaurnatsObjects.forEach(function(r) {
       Restaurant.create({
-        name: 'ABC Sushi '+i+' Shop',
-        address: 'A '+i+' BC Street Montreal, QC A1B 2C3',
-        reviews: [],
-        photo: 'http://loremflickr.com/320/240/montreal',
-        hours: {
-          mon_start: 11,
-          mon_end: 22,
-          tue_start: 11,
-          tue_end: 22,
-          wed_start: 11,
-          wed_end: 22,
-          thu_start: 11,
-          thu_end: 22,
-          fri_start: 11,
-          fri_end: 22,
-          sat_start: 11,
-          sat_end: 22,
-          sun_start: 11,
-          sun_end: 22
-        },
+        name: r.name,
+        address: r.address,
+        photo: r.photo,
+        category: r.category
       });
-    }
-    console.log('Seed Done');
+    });
+    console.log('Restaurants Seed Done');
+  }
+});
+
+User.count({}, function(err, count) {
+  if (count < 1) {
+    userObjects.forEach(function(r) {
+      var newUser = new User({
+        username: r.username,
+        email: r.email,
+        password: r.password
+      });
+      newUser.save();
+    });
+    console.log('User Seed Done');
   }
 });
 
@@ -37,50 +36,92 @@ Restaurant.count({}, function(err, count) {
 //       restaurant: '5783151ba6ac77810c634bb0',
 //       author: '57802b217b6fcd1d8969e384',
 //       rating: 3
-//     });
-
-//     Review.create({
-//       comment: 'Hai',
-//       restaurant: '5783151ba6ac77810c634bb0',
-//       author: '57810594efa407018bb91a8b',
-//       rating: 5
-//     });  
+//     }); 
 //   }
 // });
 
-// Restaurant.findOne({}, function(err, result) {
-//   if (err) {
-//     console.log('err', err);
-//   } else {
-//     console.log('result', result);
+var restaurnatsObjects = [
+  {
+    name: 'El rey del nachos',
+    address: '1625 Rue Sainte-Catherine, Montréal',
+    photo: 'http://lorempixel.com/400/200/food/1',
+    category: 'Mexican'
+  },
+  {
+    name: 'Fuji Sushi',
+    address: '1000 Rue Sainte-Catherine, Montréal',
+    photo: 'http://lorempixel.com/400/200/food/2',
+    category: 'Japanese'
+  },
+  {
+    name: 'Maison Vanessa',
+    address: '402 Rue Jean Talon, Montréal',
+    photo: 'http://lorempixel.com/400/200/food/3',
+    category: 'French'
+  },
+  {
+    name: 'Kina BBQ',
+    address: '900 Rue Jean Talon, Montréal',
+    photo: 'http://lorempixel.com/400/200/food/4',
+    category: 'Korean'
+  },
+  {
+    name: 'Maison Busan',
+    address: '930 Rue Jean-Baptiste, Montréal',
+    photo: 'http://lorempixel.com/400/200/food/5',
+    category: 'Korean'
+  },
+  {
+    name: 'Sarake Ramen',
+    address: '12 Rue Jean-Baptiste, Montréal',
+    photo: 'http://lorempixel.com/400/200/food/6',
+    category: 'Japanese'
+  },
+  {
+    name: 'Blue 300',
+    address: '12 Rue Berri, Montréal',
+    photo: 'http://lorempixel.com/400/200/food/7',
+    category: 'French'
+  },
+  {
+    name: 'Mona Merida',
+    address: '1200 Rue Berri, Montréal',
+    photo: 'http://lorempixel.com/400/200/food/8',
+    category: 'Mexican'
+  },
+  {
+    name: 'Barana Mona',
+    address: '1234 Rue Bishop, Montréal',
+    photo: 'http://lorempixel.com/400/200/food/9',
+    category: 'French'
+  },
+  {
+    name: 'Mana Kura',
+    address: '9876 Rue Bishop, Montréal',
+    photo: 'http://lorempixel.com/400/200/food/10',
+    category: 'Japanese'
+  }
+];
 
-//   }
-// });
-
-// Restaurant.update(
-//   {_id: '5783151ba6ac77810c634bb0'}, 
-//   { $inc: { total_ratings: -2}}, function(err, result) {
-//     if (err) {
-//       console.log('err', err);
-//     } else {
-//       console.log('result', result);
-//     }
-//   });
-// Restaurant.findOneAndUpdate(
-//   {_id: '5783151ba6ac77810c634bb0'}, 
-//   { $addToSet: { reviews: '578316611426c4910cc946ec'}}, function(err, result) {
-//     if (err) {
-//       console.log('err', err);
-//     } else {
-//       console.log('result', result);
-//     }
-//   });
-// Restaurant.findOneAndUpdate(
-//   {_id: '5783151ba6ac77810c634bb0'}, 
-//   { $addToSet: { reviews: '578316611426c4910cc946ed'}}, function(err, result) {
-//     if (err) {
-//       console.log('err', err);
-//     } else {
-//       console.log('result', result);
-//     }
-//   });
+var userObjects = [
+  {
+    username: 'alice',
+    email: 'alice@cc.cc',
+    password: 'password123'
+  },
+  {
+    username: 'bob',
+    email: 'bob@cc.cc',
+    password: 'password123'
+  },
+  {
+    username: 'ciara',
+    email: 'ciara@cc.cc',
+    password: 'password123'
+  },
+  {
+    username: 'david',
+    email: 'david@cc.cc',
+    password: 'password123'
+  }
+];

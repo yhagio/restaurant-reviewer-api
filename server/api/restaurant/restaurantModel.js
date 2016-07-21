@@ -17,20 +17,20 @@ var RestaurantSchema = new Schema({
   },
 
   hours: {
-    mon_start: { type: Number },
-    mon_end: { type: Number },
-    tue_start: { type: Number },
-    tue_end: { type: Number },
-    wed_start: { type: Number },
-    wed_end: { type: Number },
-    thu_start: { type: Number },
-    thu_end: { type: Number },
-    fri_start: { type: Number },
-    fri_end: { type: Number },
-    sat_start: { type: Number },
-    sat_end: { type: Number },
-    sun_start: { type: Number },
-    sun_end: { type: Number }
+    mon_start: { type: Number, default: 10},
+    mon_end: { type: Number, default: 21},
+    tue_start: { type: Number, default: 10},
+    tue_end: { type: Number, default: 21},
+    wed_start: { type: Number, default: 10},
+    wed_end: { type: Number, default: 21},
+    thu_start: { type: Number, default: 11},
+    thu_end: { type: Number, default: 21},
+    fri_start: { type: Number, default: 11},
+    fri_end: { type: Number, default: 23},
+    sat_start: { type: Number, default: 11},
+    sat_end: { type: Number, default: 23},
+    sun_start: { type: Number, default: 11},
+    sun_end: { type: Number, default: 21}
   },
 
   reviews: [{
