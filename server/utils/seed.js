@@ -44,61 +44,61 @@ var restaurnatsObjects = [
   {
     name: 'El rey del nachos',
     address: '1625 Rue Sainte-Catherine, Montréal',
-    photo: 'http://lorempixel.com/400/200/food/1',
+    photo: 'http://lorempixel.com/300/300/food/1',
     category: 'Mexican'
   },
   {
     name: 'Fuji Sushi',
     address: '1000 Rue Sainte-Catherine, Montréal',
-    photo: 'http://lorempixel.com/400/200/food/2',
+    photo: 'http://lorempixel.com/300/300/food/2',
     category: 'Japanese'
   },
   {
     name: 'Maison Vanessa',
     address: '402 Rue Jean Talon, Montréal',
-    photo: 'http://lorempixel.com/400/200/food/3',
+    photo: 'http://lorempixel.com/300/300/food/3',
     category: 'French'
   },
   {
     name: 'Kina BBQ',
     address: '900 Rue Jean Talon, Montréal',
-    photo: 'http://lorempixel.com/400/200/food/4',
+    photo: 'http://lorempixel.com/300/300/food/4',
     category: 'Korean'
   },
   {
     name: 'Maison Busan',
     address: '930 Rue Jean-Baptiste, Montréal',
-    photo: 'http://lorempixel.com/400/200/food/5',
+    photo: 'http://lorempixel.com/300/300/food/5',
     category: 'Korean'
   },
   {
     name: 'Sarake Ramen',
     address: '12 Rue Jean-Baptiste, Montréal',
-    photo: 'http://lorempixel.com/400/200/food/6',
+    photo: 'http://lorempixel.com/300/300/food/6',
     category: 'Japanese'
   },
   {
     name: 'Blue 300',
     address: '12 Rue Berri, Montréal',
-    photo: 'http://lorempixel.com/400/200/food/7',
+    photo: 'http://lorempixel.com/300/300/food/7',
     category: 'French'
   },
   {
     name: 'Mona Merida',
     address: '1200 Rue Berri, Montréal',
-    photo: 'http://lorempixel.com/400/200/food/8',
+    photo: 'http://lorempixel.com/300/300/food/8',
     category: 'Mexican'
   },
   {
     name: 'Barana Mona',
     address: '1234 Rue Bishop, Montréal',
-    photo: 'http://lorempixel.com/400/200/food/9',
+    photo: 'http://lorempixel.com/300/300/food/9',
     category: 'French'
   },
   {
     name: 'Mana Kura',
     address: '9876 Rue Bishop, Montréal',
-    photo: 'http://lorempixel.com/400/200/food/10',
+    photo: 'http://lorempixel.com/300/300/food/10',
     category: 'Japanese'
   }
 ];

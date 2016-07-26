@@ -13,7 +13,8 @@ var RestaurantSchema = new Schema({
   },
 
   photo: {
-    type: String
+    type: String,
+    required: true
   },
 
   hours: {
@@ -41,6 +42,11 @@ var RestaurantSchema = new Schema({
   total_ratings: {
     type: Number,
     default: 0
+  },
+
+  category: {
+    type: String,
+    required: true
   }
 
 });

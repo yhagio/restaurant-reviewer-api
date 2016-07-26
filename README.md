@@ -21,3 +21,12 @@ npm install && npm run sat_start
 
 Calculate Average
 - http://stackoverflow.com/questions/26810599/calculating-average-in-mongoose
+
+
+#### To Deploy on Heroku
+```
+heroku login
+heroku create
+```
+
+https://cryptic-ravine-10979.herokuapp.com/

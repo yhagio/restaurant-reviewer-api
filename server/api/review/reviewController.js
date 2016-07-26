@@ -2,9 +2,9 @@ var Review = require('./reviewModel');
 var Restaurant = require('../restaurant/restaurantModel');
 
 exports.createReview = function(req, res, next) {
-  // console.log('[createReview user]', req.user);
-  // console.log('[createReview params]', req.params);
-  // console.log('[createReview body]', req.body);
+  console.log('[createReview user]', req.user);
+  console.log('[createReview params]', req.params);
+  console.log('[createReview body]', req.body);
 
   var comment = req.body.comment;
   var author = req.user._id;
@@ -21,6 +21,7 @@ exports.createReview = function(req, res, next) {
 
   // Save review
   newReview.save(function(err, review) {
+    console.log('ERR', err);
     if (err) return next(err);
 
     // Increment the restaurant's total rating and add new one in reviews array
@@ -31,6 +32,7 @@ exports.createReview = function(req, res, next) {
     };
 
     Restaurant.findOneAndUpdate(query, update, function(error, result) {
+      console.log('ERROR', error);
       if (error) return next(error);
       return res.json(review);
     });
