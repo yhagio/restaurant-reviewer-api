@@ -27,6 +27,8 @@ Calculate Average
 ```
 heroku login
 heroku create
+git push heroku master
 ```
+Add MONGOLAB addon
 
 https://cryptic-ravine-10979.herokuapp.com/

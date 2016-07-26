@@ -7,7 +7,6 @@ var api = require('./api/api');
 // Database setup
 var mongoose = require('mongoose');
 
-console.log('config!!', config);
 mongoose.connect(config.db.url, function() {
   console.log('Connected Database URL: '+ config.db.url);
 });

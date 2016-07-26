@@ -14,8 +14,6 @@ var config = {
 process.env.NODE_ENV = process.env.NODE_ENV || config.dev;
 config.env = process.env.NODE_ENV;
 
-console.log('ENVIRONMENT: ', config.env);
-
 var envConfig;
 // Try-Catch for back up plan in case the correct
 // file does not exist
