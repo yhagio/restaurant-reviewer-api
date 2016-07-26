@@ -23,7 +23,6 @@ try {
   envConfig = require('./' + config.env);
   // if no file, set it empty object to avoid failure
   envConfig = envConfig || {};
-  console.log('envConfig: ', envConfig);
 } catch(e) {
   envConfig = {};
 }
