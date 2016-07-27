@@ -7,4 +7,7 @@ Router.route('/')
 Router.route('/:id')
   .get(controller.getOne);
 
+Router.route('/:id/create-review')
+  .get(controller.getOneBasic);
+
 module.exports = Router;

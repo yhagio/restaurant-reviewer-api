@@ -1,6 +1,17 @@
 var Restaurant = require('./restaurantModel');
 var Review = require('../review/reviewModel');
 
+// Fetch one restaurant information with no reviews
+exports.getOneBasic = function(req, res, next) {
+  Restaurant.findOne({_id: req.params.id})
+    .exec(function(err, restaurant) {
+      if (err) return next(err);
+      
+      return res.json(restaurant);      
+    });
+};
+
+// Fetch one restaurant information with reviews
 exports.getOne = function(req, res, next) {
   Restaurant.findOne({_id: req.params.id})
     .populate('reviews')
@@ -18,6 +29,7 @@ exports.getOne = function(req, res, next) {
     });
 };
 
+// Fetch all restaurants
 exports.getList = function(req, res, next) {
   Restaurant.find({})
     .skip(0)
