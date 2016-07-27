@@ -21,7 +21,7 @@ exports.createReview = function(req, res, next) {
 
   // Save review
   newReview.save(function(err, review) {
-    console.log('ERR', err);
+    console.log('Review Save ERR', err);
     if (err) return next(err);
 
     // Increment the restaurant's total rating and add new one in reviews array
@@ -32,7 +32,7 @@ exports.createReview = function(req, res, next) {
     };
 
     Restaurant.findOneAndUpdate(query, update, function(error, result) {
-      console.log('ERROR', error);
+      console.log('Review Save > Res Update ERROR', error);
       if (error) return next(error);
       return res.json(review);
     });

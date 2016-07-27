@@ -16,6 +16,7 @@ exports.getOne = function(req, res, next) {
   Restaurant.findOne({_id: req.params.id})
     .populate('reviews')
     .exec(function(err, restaurant) {
+      console.log('restaurant one e: ', err);
       if (err) return next(err);
       // console.log('restaurant one: ', restaurant);
       Restaurant.populate(restaurant, {
@@ -23,6 +24,8 @@ exports.getOne = function(req, res, next) {
         select: 'username email',
         model: 'user'
       }, function(err2, rest) {
+        console.log('restaurant one e2: ', err2);
+        if (err) return next(err2);
         return res.json(rest);
       });
       

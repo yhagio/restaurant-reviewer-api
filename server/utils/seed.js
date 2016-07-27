@@ -1,5 +1,5 @@
 var Restaurant = require('../api/restaurant/restaurantModel');
-var User = require('../api/user/userModel');
+// var User = require('../api/user/userModel');
 
 Restaurant.count({}, function(err, count) {
   if (count < 1) {
@@ -15,19 +15,19 @@ Restaurant.count({}, function(err, count) {
   }
 });
 
-User.count({}, function(err, count) {
-  if (count < 1) {
-    userObjects.forEach(function(r) {
-      var newUser = new User({
-        username: r.username,
-        email: r.email,
-        password: r.password
-      });
-      newUser.save();
-    });
-    console.log('User Seed Done');
-  }
-});
+// User.count({}, function(err, count) {
+//   if (count < 1) {
+//     userObjects.forEach(function(r) {
+//       var newUser = new User({
+//         username: r.username,
+//         email: r.email,
+//         password: r.password
+//       });
+//       newUser.save();
+//     });
+//     console.log('User Seed Done');
+//   }
+// });
 
 // Review.count({}, function(err, count) {
 //   if(count < 1) {
@@ -103,25 +103,25 @@ var restaurnatsObjects = [
   }
 ];
 
-var userObjects = [
-  {
-    username: 'alice',
-    email: 'alice@cc.cc',
-    password: 'password123'
-  },
-  {
-    username: 'bob',
-    email: 'bob@cc.cc',
-    password: 'password123'
-  },
-  {
-    username: 'ciara',
-    email: 'ciara@cc.cc',
-    password: 'password123'
-  },
-  {
-    username: 'david',
-    email: 'david@cc.cc',
-    password: 'password123'
-  }
-];
+// var userObjects = [
+//   {
+//     username: 'alice',
+//     email: 'alice@cc.cc',
+//     password: 'password123'
+//   },
+//   {
+//     username: 'bob',
+//     email: 'bob@cc.cc',
+//     password: 'password123'
+//   },
+//   {
+//     username: 'ciara',
+//     email: 'ciara@cc.cc',
+//     password: 'password123'
+//   },
+//   {
+//     username: 'david',
+//     email: 'david@cc.cc',
+//     password: 'password123'
+//   }
+// ];
