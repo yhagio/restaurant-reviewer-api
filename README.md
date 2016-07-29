@@ -31,4 +31,4 @@ git push heroku master
 ```
 Add MONGOLAB addon
 
-https://cryptic-ravine-10979.herokuapp.com/
+Hosted: https://cryptic-ravine-10979.herokuapp.com/
