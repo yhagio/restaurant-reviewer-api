@@ -13,7 +13,6 @@ var config = {
 // Setting environment variable
 process.env.NODE_ENV = process.env.NODE_ENV || config.dev;
 config.env = process.env.NODE_ENV;
-
 var envConfig;
 // Try-Catch for back up plan in case the correct
 // file does not exist

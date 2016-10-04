@@ -3,7 +3,7 @@ var signToken = require('../../auth/auth').signToken;
 
 // Register new user
 exports.saveUser = function(req, res, next) {
-  console.log('Coming!', req.body);
+  // console.log('Coming!', req.body);
 
   var username = req.body.username;
   var email = req.body.email;
@@ -21,7 +21,7 @@ exports.saveUser = function(req, res, next) {
     if (err) return next(err);
 
     // if the email exists return error
-    console.log('exist?', existingUser);
+    // console.log('exist?', existingUser);
     if (existingUser) {
       return res
               .status(422)
@@ -39,10 +39,13 @@ exports.saveUser = function(req, res, next) {
     newUser.save(function(err, userData) {
       if (err) return next(err);
 
+      // console.log('===User===>\n', signToken(userData.id));
+
       // Respond to request indicating that the user was created
       res.json({
-        token: signToken(userData._id),
+        token: signToken(userData.id),
         user: {
+          id: userData._id,
           username: userData.username,
           email: userData.email
         }

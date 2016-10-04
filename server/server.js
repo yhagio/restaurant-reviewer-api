@@ -7,6 +7,11 @@ var api = require('./api/api');
 // Database setup
 var mongoose = require('mongoose');
 
+mongoose.connect('mongodb://127.0.0.1:27017/restaurant-reviewer-test', function(){
+    // console.log('Dropped DB!');
+    mongoose.connection.db.dropDatabase();
+});
+
 mongoose.connect(config.db.url, function() {
   console.log('Connected Database URL: '+ config.db.url);
 });

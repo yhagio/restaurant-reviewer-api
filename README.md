@@ -8,7 +8,25 @@
 ```
 git clone https://github.com/yhagio/restaurant-reviewer-api
 cd restaurant-reviewer-api
-npm install && npm run sat_start
+npm install
+```
+Run mongodb in a tab
+```
+mongod 
+```
+ANd in another tab
+```
+npm run start
+```
+
+### To test locally
+Run mongodb
+```
+mongod 
+```
+in another terminal tab
+```
+npm run test
 ```
 
 **Features**:
