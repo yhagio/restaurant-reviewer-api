@@ -24,4 +24,4 @@ before_script:
 script:
   - mongod
   - npm run test
-  - npm run coverage
+  # - npm run coverage
