@@ -6,7 +6,8 @@
   "scripts": {
     "start:testdb": "export NODE_ENV=testing && node index.js",
     "start": "export NODE_ENV=development && node index.js",
-    "test": "export NODE_ENV=testing && mocha"
+    "test": "export NODE_ENV=testing && mocha",
+    "coverage": "istanbul cover _mocha -- -R spec"
   },
   "keywords": [
     "Node.js",
@@ -20,6 +21,7 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "^3.5.0",
+    "istanbul": "^0.4.5",
     "mocha": "^3.1.0",
     "supertest": "^2.0.0"
   },

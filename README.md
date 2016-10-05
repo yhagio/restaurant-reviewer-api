@@ -1,5 +1,7 @@
 ### Node.s Express API for Restaurant Reviewer
 
+[![travis build](https://img.shields.io/travis/yhagio/restaurant-reviewer-api.svg?style=flat-square)](https://travis-ci.org/yhagio/restaurant-reviewer-api)
+
 
 #### Frontend Repo
 - https://github.com/yhagio/restaurant-reviewer-client
