@@ -4,6 +4,7 @@
   "description": "Restaurant Reviewer Backend API",
   "main": "index.js",
   "scripts": {
+    "start:testdb": "export NODE_ENV=testing && node index.js",
     "start": "export NODE_ENV=development && node index.js",
     "test": "export NODE_ENV=testing && mocha"
   },

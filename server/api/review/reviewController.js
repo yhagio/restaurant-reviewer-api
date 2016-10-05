@@ -11,7 +11,6 @@ exports.createReview = function(req, res, next) {
   var restaurant = req.params.id;
   var rating = req.body.rating;
 
-
   var newReview = new Review({
     comment: comment,
     author: author,

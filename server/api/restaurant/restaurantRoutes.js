@@ -2,6 +2,9 @@ var Router = require('express').Router();
 var controller = require('./restaurantController');
 
 Router.route('/')
+  .post(controller.registerRestaurant);
+
+Router.route('/')
   .get(controller.getList); // Get restaurants list
 
 Router.route('/:id')

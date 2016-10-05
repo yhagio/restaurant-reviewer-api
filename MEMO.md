@@ -6,5 +6,10 @@
 #### More features
 - [ ] Admin can add restaurants
 - [ ] Error handling
-- [ ] Editable comment
+- [ ] Editable / deletable comment
 - [ ] Profile page with comments
+
+#### Maybe
+- [ ] Users can delete account
+- [ ] Users can edit their Profile
+- [ ] 
